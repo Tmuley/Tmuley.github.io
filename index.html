@@ -1,36 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/style.css">
-    <script src="/script.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tanmay Muley - Software Developer Portfolio">
-  <title>Tanmay Muley | Portfolio</title>
+  <meta name="description" content="Tanmay Muley - Software developer portfolio. Python, C/C++, SQL, Linux.">
+  <title>Tanmay Muley | Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="#" class="logo">Tanmay</a>
-      <ul>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#top" class="logo">Tanmay Muley</a>
+      <ul class="links">
         <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <button id="theme-toggle" aria-label="Switch colour theme">🌙</button>
     </nav>
   </header>
 
-  <main>
-    <section id="hero"><h1>Hi, I'm Tanmay</h1><p>ENTC graduate building software.</p></section>
-    <section id="about"><h2>About</h2><p>...</p></section>
-    <section id="projects"><h2>Projects</h2>
-      <div class="grid">
-        <article class="card"><h3>Project name</h3><p>What it does</p><a href="#">GitHub</a></div>
+  <main id="top">
+    <section class="hero">
+      <canvas id="wave" aria-hidden="true"></canvas>
+      <div class="hero-text">
+        <p class="hello">Hi, I'm Tanmay.</p>
+        <h1>I build <span id="typed"></span><span class="caret">|</span></h1>
+        <p class="lead">Electronics &amp; Telecommunication graduate (2026) turning Linux, Python and SQL into working software.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="resume.pdf" download>Download resume</a>
+        </div>
       </div>
     </section>
-    <section id="contact"><h2>Contact</h2></section>
+
+    <section id="about" class="block">
+      <h2>About</h2>
+      <p>I studied Electronics &amp; Telecommunication at PES Modern College of Engineering, Pune (CGPA 8.01). During my internship at Gaxce Sensors I set up a Linux server on a Raspberry Pi and wrote a virtual USB device, which taught me to debug a problem from the hardware up to the application.</p>
+      <p>I was a finalist at the Bosch Road Safety Hackathon 2025, runner-up at an IoT hackathon, and a top 400 team out of 2,900+ at CII Yi IDS 4.0. I'm now looking for a software engineering role.</p>
+      <ul class="stats">
+        <li><strong>8.01</strong><span>CGPA</span></li>
+        <li><strong>3</strong><span>hackathon results</span></li>
+        <li><strong>2026</strong><span>graduate</span></li>
+      </ul>
+    </section>
+
+    <section id="skills" class="block">
+      <h2>Skills</h2>
+      <div class="skill-grid">
+        <div><h3>Languages</h3><p>Python, C, C++, SQL, JavaScript, HTML, CSS</p></div>
+        <div><h3>Systems</h3><p>Linux, shell scripting, TCP/IP, SSH, REST APIs</p></div>
+        <div><h3>Data</h3><p>MySQL, Pandas, Matplotlib, Power BI, Tableau</p></div>
+        <div><h3>Tools</h3><p>Git, GitHub, VS Code</p></div>
+      </div>
+    </section>
+
+    <section id="projects" class="block">
+      <h2>Projects</h2>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="web">Web</button>
+        <button class="chip" data-filter="data">Data</button>
+        <button class="chip" data-filter="embedded">Embedded</button>
+      </div>
+      <div class="grid" id="project-grid">
+        <article class="card" data-cat="web">
+          <h3>Weather &amp; Currency Dashboard</h3>
+          <p>Fetches live data from public REST APIs with async JavaScript, with loading and error states.</p>
+          <p class="tags">HTML · CSS · JavaScript</p>
+          <a href="#" target="_blank" rel="noopener">View code</a>
+        </article>
+        <article class="card" data-cat="web">
+          <h3>IT Support Knowledge Base</h3>
+          <p>A searchable site of categorized troubleshooting guides and FAQs for common IT issues.</p>
+          <p class="tags">HTML · CSS</p>
+          <a href="#" target="_blank" rel="noopener">View code</a>
+        </article>
+        <article class="card" data-cat="data">
+          <h3>Retail Sales Analytics</h3>
+          <p>Interactive Power BI dashboard on revenue trends and regional sales, built on cleaned SQL data.</p>
+          <p class="tags">Power BI · Power Query · SQL</p>
+          <a href="#" target="_blank" rel="noopener">View details</a>
+        </article>
+        <article class="card" data-cat="data">
+          <h3>Data Cleaning &amp; EDA</h3>
+          <p>Cleaned the Titanic and Amazon Prime datasets and explored them with boxplots, heatmaps and facet grids.</p>
+          <p class="tags">Python · Pandas · Seaborn</p>
+          <a href="#" target="_blank" rel="noopener">View code</a>
+        </article>
+        <article class="card" data-cat="embedded">
+          <h3>Raspberry Pi Sensor Server</h3>
+          <p>Linux server for sensor interfacing, reachable by other devices over LAN, plus a virtual USB device for data transfer.</p>
+          <p class="tags">Linux · Python · Networking</p>
+          <a href="#" target="_blank" rel="noopener">View details</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="block">
+      <h2>Contact</h2>
+      <p>Open to software engineering roles. The quickest way to reach me is email.</p>
+      <p class="contact-row">
+        <a href="mailto:tanmaymule777@gmail.com">tanmaymule777@gmail.com</a>
+        <a href="https://github.com/Tmuley" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/YOUR-ID" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </section>
   </main>
 
   <footer><p>© 2026 Tanmay Muley</p></footer>
